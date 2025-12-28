@@ -7,7 +7,7 @@ const Banner = () => {
   const handleShareStory = () => {
     const password = prompt("Enter the password:");
     if (password === "1234") {
-      router.push("/dashboard");
+      router.push("/stories");
     }
   };
   return (

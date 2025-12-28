@@ -1,12 +1,12 @@
-import Title from '@/components/Title';
-import React from 'react';
+import Title from "@/components/Title";
+import React from "react";
 
 const Dashboard = () => {
-    return (
-        <div>
-            <Title> Welcome to Dashboard</Title>
-        </div>
-    );
+  return (
+    <div>
+      <Title> Welcome to Dashboard</Title>
+    </div>
+  );
 };
 
 export default Dashboard;
