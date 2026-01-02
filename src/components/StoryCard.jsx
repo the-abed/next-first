@@ -13,7 +13,7 @@ export default function StoryCard({ story }) {
           className="w-16 h-16 rounded-full object-cover"
         />
         <div>
-          <h2 className="font-semibold text-lg">{story.name}</h2>
+          <h2 className="font-semibold text-lg text-gray-800">{story.name}</h2>
           <p className="text-sm text-gray-600">{story.designation}</p>
           <p className="text-sm text-blue-600">{story.company}</p>
         </div>
