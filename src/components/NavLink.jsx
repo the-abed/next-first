@@ -1,10 +1,18 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 
-const NavLink = (href,children) => {
-    return (
-        <Link href={href}>{children}</Link>
-    );
+const NavLink = ({ href, children }) => {
+  const pathname = usePathname();
+
+  return (
+    <Link
+      className={`${pathname.startsWith(href) && "bg-sky-600 px-3 rounded-3xl"}`}
+      href={href}
+    >
+      {children}
+    </Link>
+  );
 };
 
 export default NavLink;
