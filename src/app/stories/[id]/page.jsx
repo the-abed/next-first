@@ -2,9 +2,8 @@ import React from "react";
 
 const StoryDetails = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
 
-  const devStories = [
+    const devStories = [
     {
       id: 1,
       name: "Arman Hossain",
@@ -73,52 +72,81 @@ const StoryDetails = async ({ params }) => {
   ];
 
   const story = devStories.find((story) => story.id == id);
- 
+
+  if (!story) {
+    return (
+      <div className="text-center mt-20 text-red-500 text-xl">
+        Story not found.
+      </div>
+    );
+  }
+
   return (
-    <div className="max-w-3xl mx-auto  shadow-md rounded-lg p-6 border border-gray-200">
-      {/* Full story */}
-          <div>
-        <div className="flex items-center gap-5">
+    <div className="min-h-screen  py-12 px-4">
+      <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-10 border border-gray-100">
+
+        {/* Profile Section */}
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
           <img
             src={story.image}
             alt={story.name}
-            className="w-24 h-24 rounded-full object-cover"
+            className="w-28 h-28 rounded-full object-cover border-4 border-indigo-500 shadow-lg"
           />
-          <div>
-            <h1 className="text-2xl font-semibold">{story.name}</h1>
-            <p className="text-gray-700">{story.designation}</p>
-            <p className="text-blue-600">{story.company}</p>
-            <p className="text-gray-600 mt-1">Experience: {story.experience}</p>
+
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl font-bold text-gray-800">
+              {story.name}
+            </h1>
+            <p className="text-gray-600 mt-1">
+              {story.designation}
+            </p>
+            <p className="text-indigo-600 font-medium">
+              {story.company}
+            </p>
+            <p className="text-gray-500 mt-2">
+              Experience: {story.experience}
+            </p>
           </div>
         </div>
 
-        {/* Story */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Learning Story</h2>
-          <p className="text-gray-700 leading-relaxed">{story.story}</p>
+        {/* Learning Story */}
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold mb-4 text-indigo-700 border-b pb-2">
+            Learning Story
+          </h2>
+          <p className="text-gray-700 leading-relaxed text-justify">
+            {story.story}
+          </p>
         </div>
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">About Developer</h2>
-          <p className="text-gray-700 leading-relaxed">{story.about}</p>
+
+        {/* About Developer */}
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold mb-4 text-purple-700 border-b pb-2">
+            About Developer
+          </h2>
+          <p className="text-gray-700 leading-relaxed text-justify">
+            {story.about}
+          </p>
         </div>
 
         {/* Skills */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Skills</h2>
-          <div className="flex flex-wrap gap-2">
+        <div className="mt-10">
+          <h2 className="text-2xl font-semibold mb-4 text-pink-700 border-b pb-2">
+            Skills
+          </h2>
+          <div className="flex flex-wrap gap-3">
             {story.skills.map((skill, index) => (
               <span
                 key={index}
-                className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-1.5 rounded-full text-sm shadow-md hover:scale-105 transition-transform duration-200"
               >
                 {skill}
               </span>
             ))}
           </div>
         </div>
+
       </div>
-
-
     </div>
   );
 };
