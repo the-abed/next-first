@@ -15,7 +15,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[60vh] px-4">
+    <div className=" justify-center items-center mb-8 px-4">
       {/* Banner with share story button */}
       <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col justify-center items-center gap-6 p-14 rounded-3xl shadow-2xl text-center">
         
